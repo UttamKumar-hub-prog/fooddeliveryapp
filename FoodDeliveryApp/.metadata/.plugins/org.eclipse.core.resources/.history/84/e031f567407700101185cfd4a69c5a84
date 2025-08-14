@@ -1,0 +1,23 @@
+package com.wipro.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Menu;
+import com.wipro.repo.Menurepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class MenuService {
+
+	private final Menurepo menurepo;
+	
+	public Menu createmenu(Menu menu) {
+		
+		return menurepo.save(menu);
+	}
+
+}

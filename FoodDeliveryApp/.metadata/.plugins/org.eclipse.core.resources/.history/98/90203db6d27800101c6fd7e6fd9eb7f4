@@ -1,0 +1,113 @@
+package com.wipro.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Booking;
+
+import com.wipro.feign.BookingFeign;
+import com.wipro.feign.Mfeign;
+import com.wipro.repo.BookingRepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BookingService {
+    
+	private final BookingRepo bookingrepo;
+	private final BookingFeign bfeign;
+	private final Mfeign mfeign;
+	
+	
+	public Booking orderFood(Booking booking) {
+	   
+	    Long resid = bfeign.getResIdByName(booking.getResName());
+	    if (resid == null) {
+	        throw new RuntimeException("Restaurant not found: " + booking.getResName());
+	    }
+
+	   
+	    Integer quantity = booking.getQuantity();
+	    Integer price = mfeign.getPriceByName(booking.getItemName());
+
+	    if (quantity == null || price == null) {
+	        throw new RuntimeException("Price or quantity is missing for item: " + booking.getItemName());
+	    }
+
+	    
+	    booking.setPrice(price * quantity);
+
+	    
+
+	    return bookingrepo.save(booking);
+	}
+
+
+	public List<Booking> getorders() {
+		
+		return bookingrepo.findAll();
+	}
+
+	public Booking getOrderById(Long id) {
+		
+		
+		return bookingrepo.findById(id).orElseThrow(() -> new RuntimeException("Booking not found"));
+	}
+
+	public Booking updateOrderById(Long id, Booking booking) {
+		
+		Booking existing=bookingrepo.findById(id)
+				.orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));;
+		
+				if (booking.getCustomerName() != null) {
+			        existing.setCustomerName(booking.getCustomerName());
+			    }
+			    if (booking.getPhone() != null) {
+			        existing.setPhone(booking.getPhone());
+			    }
+			    if (booking.getResName() != null) {
+			        existing.setResName(booking.getResName());
+			    }
+			    if (booking.getItemName() != null) {
+			        existing.setItemName(booking.getItemName());
+			    }
+			    if (booking.getQuantity() != null) {
+			        existing.setQuantity(booking.getQuantity());
+			    }
+			    
+
+			    return bookingrepo.save(existing);
+	}
+
+	public Integer getAmount(Long id) {
+	    Booking booking = bookingrepo.findById(id)
+	        .orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));
+
+	    Integer quantity = booking.getQuantity();
+	    Integer price = mfeign.getPriceByName(booking.getItemName());
+
+	    if (quantity == null || price == null) {
+	        throw new RuntimeException("Price or quantity is missing for booking id: " + id);
+	    }
+
+	    return price * quantity;
+	}
+
+	public Boolean findOrderById(Long id) {
+	    return bookingrepo.existsById(id);
+	}
+
+
+	public Integer getPrice(Long id) {
+		Booking booking = bookingrepo.findById(id)
+		        .orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));
+		
+		Integer price=booking.getPrice();
+		return price;
+	}
+    
+	
+	
+}

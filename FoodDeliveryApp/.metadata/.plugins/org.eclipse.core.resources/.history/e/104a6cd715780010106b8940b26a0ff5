@@ -1,0 +1,25 @@
+package com.wipro.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.wipro.entities.Payment;
+import com.wipro.service.PaymentService;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@AllArgsConstructor
+
+public class paymentcontroller {
+	
+	private final PaymentService paymentservice;
+	
+	    @GetMapping("/PlaceOrder")
+		public Payment PlaceOrder(@PathVariable Long id)
+		{
+			return paymentservice.placeOrder(id);
+		}
+	
+}

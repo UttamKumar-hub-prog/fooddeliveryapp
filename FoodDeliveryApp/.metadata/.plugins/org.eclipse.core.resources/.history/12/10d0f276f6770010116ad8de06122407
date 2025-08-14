@@ -1,0 +1,8 @@
+package com.wipro.feign;
+
+
+
+public interface Mfeign {
+   //@GetMapping("/getMenuItemByName/{name}")
+   //Long getMenuItemByName(@PathVariable String name);
+}

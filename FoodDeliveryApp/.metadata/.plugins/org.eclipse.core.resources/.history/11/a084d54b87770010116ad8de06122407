@@ -1,0 +1,8 @@
+package com.wipro.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="MenuService")
+public interface Mfeign {
+   
+}

@@ -1,0 +1,9 @@
+package com.wipro.feign;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+public interface Mfeign {
+   @GetMapping("/getMenuItemByName/{name}")
+   Long getMenuItemByName(@PathVariable String name);
+}

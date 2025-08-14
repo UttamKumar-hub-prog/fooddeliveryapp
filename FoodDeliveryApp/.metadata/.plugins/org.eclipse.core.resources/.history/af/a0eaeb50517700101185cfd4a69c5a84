@@ -1,0 +1,49 @@
+package com.wipro.controller;
+
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.wipro.entities.Menu;
+import com.wipro.service.MenuService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class MenuController {
+	
+	private final  MenuService menuservice;
+	
+	@PostMapping("/additem")
+	public Menu createmenu(@RequestBody Menu menu)
+	{
+		return menuservice.createmenu(menu);
+	}
+	
+	@GetMapping("/getallitems")
+	public List<Menu> getallitems()
+	{
+		return menuservice.getallitems();
+	}
+	
+	@GetMapping("/getitemsbyresid/{resId}")
+	public List<Menu> getItemsByResId(@PathVariable Long resId) {
+	    return menuservice.getItemsByResId(resId);
+	}
+	
+	@GetMapping("/getitemsbyresname/{name}")
+	public List<Menu> getItemsByResName(@PathVariable String name)
+	{
+		return menuservice.getItemsByResName(name);
+	}
+	
+	
+	
+
+}

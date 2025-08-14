@@ -1,0 +1,7 @@
+package com.wipro.customexception;
+
+
+public class RES_NOT_FOUND_EXCEPTION {
+	
+
+}

@@ -1,0 +1,48 @@
+package com.wipro.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.wipro.entities.Restuarant;
+import com.wipro.service.ResService;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@AllArgsConstructor
+public class ResController {
+	
+	private final ResService resservice;
+
+	@PostMapping("/addrestuarnt")
+	public Restuarant createres(@RequestBody Restuarant restuarant)
+	{
+		
+		return resservice.createres(restuarant);
+	}
+	
+	@GetMapping("/getallrestuarnt")
+	public List<Restuarant> getRes()
+	{
+		return resservice.getRes();
+	}
+	
+	@DeleteMapping("/deleterestuarant/{id}")
+	public void  deleteRes(@PathVariable Long id)
+	{
+		resservice.deleteres(id);
+	}
+	
+	@GetMapping("/getResIdByName/{name}")
+	public Long getResIdByName(@PathVariable String name)
+	{
+		return null;
+	}
+}

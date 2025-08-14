@@ -1,0 +1,10 @@
+package com.wipro.service;
+
+import com.wipro.entities.Booking;
+
+public class BookingService {
+
+	
+
+	
+}

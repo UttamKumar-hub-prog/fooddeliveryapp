@@ -1,0 +1,12 @@
+package com.wipro.service;
+
+import com.wipro.entities.Notification;
+
+public class Nservice {
+
+	public void sendNotification(Notification request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

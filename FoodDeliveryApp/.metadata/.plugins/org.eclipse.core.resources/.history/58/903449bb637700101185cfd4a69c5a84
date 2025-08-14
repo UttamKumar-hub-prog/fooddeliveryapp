@@ -1,0 +1,15 @@
+package com.wipro.service;
+
+import com.wipro.entities.Booking;
+
+public class BookingService {
+
+	public Booking orderFood(Booking booking) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
+}

@@ -1,0 +1,42 @@
+package com.wipro.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Booking;
+import com.wipro.entities.bookingItem;
+import com.wipro.feign.BookingFeign;
+import com.wipro.repo.BookingRepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BookingService {
+    
+	private final BookingRepo bookingrepo;
+	private final BookingFeign bfeign;
+	
+	public Booking orderFood(Booking booking) {
+		List<bookingItem> itemsList=booking.getItems();
+		for(bookingItem item:itemsList) {
+			Long resid = bfeign.getResIdByName(item.getResName());
+			if (resid == null) {
+		        throw new RuntimeException("Restaurant not found");
+		    }
+			
+		}	
+		
+		return bookingrepo.save(booking);
+	}
+	
+	
+	
+	
+	
+
+	
+
+	
+}

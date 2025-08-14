@@ -1,0 +1,31 @@
+package com.wipro.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+
+import com.wipro.entities.Restuarant;
+import com.wipro.repo.ResRepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class ResService {
+
+	private final  ResRepo resrepo;
+	public Restuarant createres(Restuarant restuarant) {
+		
+		return resrepo.save(restuarant);
+	}
+	public List<Restuarant> getRes() {
+		
+		return resrepo.findAll();
+	}
+	public void deleteres(Long id) {
+		 resrepo.deleteById(id);
+		
+	}
+
+}

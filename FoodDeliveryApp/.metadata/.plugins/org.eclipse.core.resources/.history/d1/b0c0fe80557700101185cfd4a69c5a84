@@ -1,0 +1,68 @@
+package com.wipro.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Menu;
+import com.wipro.feign.MenuInterface;
+
+import com.wipro.repo.Menurepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class MenuService {
+
+	private final Menurepo menurepo;
+	private final MenuInterface menuinterface;
+	
+	public Menu createmenu(Menu menu) {
+		
+		return menurepo.save(menu);
+	}
+
+	public List<Menu> getallitems() {
+		
+		return menurepo.findAll();
+	}
+
+	public List<Menu> getItemsByResId(Long resId) {
+	        return menurepo.findByResId(resId);
+	}
+
+	public List<Menu> getItemsByResName(String name) {
+		
+		Long resid = menuinterface.getResIdByName(name);
+		return menurepo.findByResId(resid);
+	}
+
+	public Menu updateMenuById(Long id,Menu menu) {
+		
+		Menu existing = menurepo.findById(id)
+		        .orElseThrow(() -> new RuntimeException("Menu not found with id: " + id));
+		
+		if(menu.getItemName() != null) {
+			existing.setItemName(menu.getItemName());
+		}
+		
+		if(menu.getCategory() != null) {
+			existing.setCategory(menu.getCategory());
+		}
+		
+		if(menu.getPrice() != null && menu.getPrice() != 0) {
+			existing.setPrice(menu.getPrice());
+		}
+		
+		if(menu.getResId() != null) {
+			existing.setResId(menu.getResId());
+		}
+		
+		
+		return menurepo.save(existing);
+	}
+	 
+
+
+}

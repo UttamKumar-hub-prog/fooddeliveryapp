@@ -1,0 +1,12 @@
+package com.wipro.service;
+
+import com.wipro.entities.Payment;
+
+public class PaymentService {
+
+	public Payment PlaceOrder(Long id) {
+		
+		return null;
+	}
+
+}

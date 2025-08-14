@@ -1,0 +1,16 @@
+package com.wipro.entities;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class bookingItem {
+
+	private String resName;
+	private String itemName;
+    private int quantity;
+    
+	
+}

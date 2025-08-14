@@ -1,0 +1,27 @@
+package com.wipro.service;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Booking;
+import com.wipro.repo.BookingRepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BookingService {
+    
+	private final BookingRepo bookingrepo;
+	
+	public Booking orderFood(Booking booking) {
+		
+		return bookingrepo.save(booking);
+	}
+	
+	
+	
+
+	
+
+	
+}

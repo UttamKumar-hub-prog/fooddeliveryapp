@@ -1,0 +1,12 @@
+spring.application.name=NotificationService
+spring.mail.host=smtp.gmail.com
+spring.mail.port=9400
+spring.mail.username=your-email@gmail.com
+spring.mail.password=your-app-password
+
+# TLS Enable
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+# Optional Debug
+spring.mail.properties.mail.debug=true

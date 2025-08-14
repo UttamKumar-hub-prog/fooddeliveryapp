@@ -1,0 +1,7 @@
+ackage com.wipro.feign;
+
+
+public interface NotificationFeign {
+
+	
+}

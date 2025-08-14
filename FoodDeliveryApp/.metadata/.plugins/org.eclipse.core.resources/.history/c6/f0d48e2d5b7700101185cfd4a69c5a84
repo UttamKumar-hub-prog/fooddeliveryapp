@@ -1,0 +1,5 @@
+package com.wipro.entities;
+
+public class bookingItem {
+
+}

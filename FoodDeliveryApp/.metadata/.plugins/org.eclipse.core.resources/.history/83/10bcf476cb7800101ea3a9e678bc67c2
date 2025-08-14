@@ -1,0 +1,17 @@
+
+
+spring.application.name=NotificationService
+server.port=9400
+spring.mail.host=smtp.gmail.com
+spring.mail.port=9400
+spring.mail.username=viratntr9999@gmail.com
+spring.mail.password=hcmg tvkv ffpn rofc
+
+# TLS Enable
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+
+# Optional Debug
+spring.mail.properties.mail.debug=true

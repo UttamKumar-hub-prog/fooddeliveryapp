@@ -1,0 +1,8 @@
+package com.wipro.repo;
+
+import org.hibernate.query.criteria.JpaQueryPart;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+public interface ResRepo extends JpaRepositoryImplementation<Restuarant, ID>, JpaQueryPart<T> {
+
+}

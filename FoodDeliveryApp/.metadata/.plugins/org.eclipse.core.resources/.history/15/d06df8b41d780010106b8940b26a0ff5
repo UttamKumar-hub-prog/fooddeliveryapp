@@ -1,0 +1,38 @@
+package com.wipro.service;
+
+import java.time.LocalDateTime;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.entities.Payment;
+import com.wipro.feign.PaymentFeign;
+import com.wipro.repo.paymentrepo;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class PaymentService {
+	
+	private final paymentrepo payrepo;
+	private final PaymentFeign payfeign;
+
+	public Payment placeOrder(Long id) {
+	    Boolean bookingExists = payfeign.findOrderById(id);
+	    
+	    if (Boolean.TRUE.equals(bookingExists)) {
+	        Payment payment = new Payment();
+	        payment.setDateAndTime(LocalDateTime.now());
+	        payment.setOrderStatus("order placed");
+	        payment.setPrice(350);
+	        payment.setPaymentMethod("cod");
+
+	        
+	        return payrepo.save(payment);
+	    } else {
+	        throw new RuntimeException("Booking not found for id: " + id);
+	    }
+	}
+
+
+}
