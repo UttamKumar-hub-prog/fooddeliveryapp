@@ -35,12 +35,12 @@ public class MenuController {
 		return menuservice.getallitems(pageable);
 	}
 	
-	@GetMapping("/getitemsbyresid/{resId}")
+	@GetMapping("/getitemsbyresid/{resId}") 
 	public List<Menu> getItemsByResId(@PathVariable Long resId) {
 	    return menuservice.getItemsByResId(resId);
 	}
 	
-	@GetMapping("/getitemsbyresname/{name}")
+	@GetMapping("/getitemsbyresname/{name}") //getitemsbyresname
 	public List<Menu> getItemsByResName(@PathVariable String name)
 	{
 		return menuservice.getItemsByResName(name);
@@ -51,12 +51,12 @@ public class MenuController {
 		return menuservice.updateMenuById(id,newMenu);
 	}
 	
-	@PostMapping("/addItemsByResName/{name}")
+	@PostMapping("/addItemsByResName/{name}") //addItemsByResName
 	public Menu addItemsByResName(@PathVariable String name,@RequestBody Menu menu) {
 		return menuservice.addItemsByResName(name,menu);
 	}
 	
-	@GetMapping("/getPriceByName/{name}")
+	@GetMapping("/getPriceByName/{name}") //getPriceByItemName
 	public Integer getPriceByName(@PathVariable String name) {
 		return menuservice.givePrice(name);
 	}

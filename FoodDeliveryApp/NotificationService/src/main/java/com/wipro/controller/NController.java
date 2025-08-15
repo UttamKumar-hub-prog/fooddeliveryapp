@@ -12,13 +12,13 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class NController {
-      private final Nservice nservice;
-      
-      
-      
-      @PostMapping("/notifications/send")
-      public void sendNotification(@RequestBody Notification request) {
-          nservice.sendNotification(request);
-      }
- 
+	private final Nservice nservice;
+
+	@PostMapping("/notifications/send")
+	public String sendNotification(@RequestBody Notification request) {
+		nservice.sendNotification(request);
+		return "Notofication is sent";
+
+	}
+
 }

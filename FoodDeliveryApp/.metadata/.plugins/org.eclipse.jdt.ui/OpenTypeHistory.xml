@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=Restuarant/C:\/Users\/vinay\/.m2\/repository\/org\/hibernate\/orm\/hibernate-core\/6.6.22.Final\/hibernate-core-6.6.22.Final.jar=/maven.pomderived=/true=/=/maven.groupId=/org.hibernate.orm=/=/maven.artifactId=/hibernate-core=/=/maven.version=/6.6.22.Final=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.hibernate.query.criteria(JpaQueryPart.class[JpaQueryPart" modifiers="1537" timestamp="1754043595353"/>
-    <typeInfo handle="=Restuarant/C:\/Users\/vinay\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/3.5.2\/spring-data-jpa-3.5.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/3.5.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository.support(JpaRepositoryImplementation.class[JpaRepositoryImplementation" modifiers="1537" timestamp="1754043588753"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

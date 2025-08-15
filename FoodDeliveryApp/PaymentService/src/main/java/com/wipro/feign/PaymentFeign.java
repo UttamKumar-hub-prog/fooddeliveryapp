@@ -20,4 +20,6 @@ public interface PaymentFeign {
 	@GetMapping("/getCustomerEmail/{id}")
 	public String getCustomerEmail(@PathVariable Long id);
 
+	 
+
 }

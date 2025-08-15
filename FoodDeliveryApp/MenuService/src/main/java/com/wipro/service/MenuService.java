@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.wipro.entities.Menu;
+import com.wipro.exception.MenuNotFoundException;
 import com.wipro.feign.MenuInterface;
 
 import com.wipro.repo.Menurepo;
@@ -43,7 +44,7 @@ public class MenuService {
 	public Menu updateMenuById(Long id,Menu menu) {
 		
 		Menu existing = menurepo.findById(id)
-		        .orElseThrow(() -> new RuntimeException("Menu not found with id: " + id));
+		        .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id));
 		
 		if(menu.getItemName() != null) {
 			existing.setItemName(menu.getItemName());
